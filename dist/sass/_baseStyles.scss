@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap);
+
+// private variable
+$-lato: "Lato", sans-serif;
+@mixin base-format {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+@mixin base-body-format {
+	font-family: $-lato;
+	color: #333;
+	line-height: 1.6;
+}
+
+@mixin base-list {
+	list-style-type: none;
+	color: #333;
+}
+
+@mixin base-links {
+	text-decoration: none;
+	color: #333;
+}
+
+@mixin base-header {
+	font-weight: 300;
+	line-height: 1.2;
+	margin: 10x 0;
+}
+
+@mixin base-paragraph {
+	margin: 10x 0;
+}
+
+@mixin base-image {
+	width: 100%;
+}
