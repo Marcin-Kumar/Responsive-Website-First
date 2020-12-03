@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap);
 
+//public variable
+$backgroundColorPrimary: royalblue;
+$backgroundColorSecondary: white;
+$textColorPrimary: white;
+$textColorSecondary: #333;
+$basePrimaryColor: white;
+
 // private variable
 $-lato: "Lato", sans-serif;
 @mixin base-format {
