@@ -17,6 +17,13 @@
 	margin: 10px;
 }
 
+.responsive {
+	width: 100%;
+	height: auto;
+	max-width: 450px;
+	max-height: 280px;
+}
+
 .btn {
 	display: inline-block;
 	padding: 10px 30px;
@@ -33,6 +40,67 @@
 .btn-outline {
 	background-color: transparent;
 	border: 1px $basePrimaryColor solid;
+}
+
+.bg-primary,
+.btn-primary {
+	background-color: $backgroundColorPrimary;
+	color: $textColorPrimary;
+}
+.bg-secondary,
+.btn-secondary {
+	background-color: $backgroundColorSecondary;
+	color: $textColorSecondary;
+}
+
+.bg-tertiary,
+.btn-tertiary {
+	background-color: $backgroundColorTertiary;
+	color: $textColorPrimary;
+}
+
+.bg-dark,
+.btn-dark {
+	background-color: $backgroundColorDark;
+	color: $textColorPrimary;
+}
+
+.bg-light,
+.btn-light {
+	background-color: $backgroundColorLight;
+	color: $textColorSecondary;
+}
+
+.bg-primary,
+.btn-primary,
+.bg-tertiary,
+.btn-tertiary,
+.bg-dark,
+.btn-dark {
+	a {
+		color: $textColorPrimary;
+	}
+}
+
+// Text sizes
+.lead {
+	font-size: 20px;
+}
+
+.small {
+	font-size: 1rem;
+}
+
+.medium {
+	font-size: 2rem;
+}
+
+.large {
+	font-size: 3rem;
+}
+
+.xl {
+	font-size: 4rem;
 }
 
 .text-center {
