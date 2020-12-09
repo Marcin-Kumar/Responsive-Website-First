@@ -12,3 +12,8 @@ status = 200
 from = "/contact.html"
 to = "/dist/html/contact.html"
 status = 200
+
+[[redirects]]
+from = "/index.html"
+to = "/dist/html/index.html"
+status = 200
