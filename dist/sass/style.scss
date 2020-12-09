@@ -60,16 +60,17 @@ img {
 	background-color: $backgroundColorPrimary;
 	color: $textColorPrimary;
 	position: relative;
-	h1 {
-		font-size: 40px;
-	}
-	p {
-		margin: 20px 0;
-	}
+
 	.grid {
 		overflow: visible;
-		grid-template-columns: 55% 45%;
+		grid-template-columns: 55% auto;
 		gap: 30px;
+		h1 {
+			font-size: 40px;
+		}
+		p {
+			margin: 20px 0;
+		}
 	}
 }
 
@@ -79,7 +80,7 @@ img {
 	height: 350px;
 	width: 400px;
 	padding: 40px;
-	z-index: 1;
+	z-index: 100;
 	justify-self: flex-end;
 	.form-control {
 		margin: 30px 0;
@@ -151,16 +152,20 @@ img {
 		}
 		.image-fade {
 			background-image: url("/images/together.jpg");
+			width: 450px;
+			height: 300px;
 			background-size: cover;
 			box-shadow: 0 3px 25px rgba($color: #000000, $alpha: 0.7);
-			@extend .responsive;
 			img {
+				width: 450px;
+				height: 300px;
 				-webkit-transition: all ease 1s;
 				-moz-transition: all ease 1s;
 				-o-transition: all ease 1s;
 				-ms-transition: all ease 1s;
 				transition: all ease 1s;
 				&:hover {
+					height: 300px;
 					opacity: 0;
 					transform: scale(1.1) translate3d(-10px, -10px, 0);
 				}
@@ -189,7 +194,8 @@ img {
 // Languages
 .languages {
 	.flex {
-		justify-content: space-between;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
 	}
 	.card {
 		text-align: center;
@@ -218,6 +224,78 @@ img {
 	.social {
 		a {
 			margin: 0 10px;
+		}
+	}
+}
+
+// Tablet and under
+
+@media (max-width: 768px) {
+	.grid,
+	.showcase .grid,
+	.stats .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.showcase {
+		height: auto;
+		.showcase-text {
+			text-align: center;
+			margin-top: 40px;
+		}
+		.showcase-form {
+			justify-self: center;
+			margin: auto;
+		}
+	}
+
+	.direct-conversation .grid {
+		> *:first-child {
+			grid-column: 1;
+			grid-row: 1;
+		}
+		gap: 2rem;
+		overflow: hidden;
+		i {
+			justify-self: flex-start;
+			align-self: center;
+			font-size: 9rem;
+		}
+	}
+	.category .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		> *:first-child {
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			justify-self: center;
+		}
+		text-align: center;
+		align-items: center;
+		justify-items: stretch;
+	}
+}
+
+// Mobile
+
+@media (max-width: 500px) {
+	.navbar {
+		height: 7rem;
+		.flex {
+			flex-direction: column;
+			justify-content: stretch;
+		}
+		ul {
+			margin-top: 10px;
+			padding: 10px;
+			background-color: rgba($color: #000000, $alpha: 0.1);
+			a {
+				color: $textColorPrimary;
+				&:hover {
+					border-bottom: 2px $textColorPrimary solid;
+				}
+			}
 		}
 	}
 }
