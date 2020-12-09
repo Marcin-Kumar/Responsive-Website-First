@@ -1,5 +1,15 @@
 @import url(https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap);
 
+//public variable
+$backgroundColorPrimary: royalblue;
+$backgroundColorSecondary: white;
+$backgroundColorTertiary: rgb(21, 69, 216);
+$backgroundColorDark: rgb(12, 26, 46);
+$backgroundColorLight: rgb(245, 245, 245);
+$textColorPrimary: white;
+$textColorSecondary: #333;
+$basePrimaryColor: white;
+
 // private variable
 $-lato: "Lato", sans-serif;
 @mixin base-format {
@@ -10,18 +20,23 @@ $-lato: "Lato", sans-serif;
 
 @mixin base-body-format {
 	font-family: $-lato;
-	color: #333;
+	color: $textColorSecondary;
 	line-height: 1.6;
+}
+
+@mixin base-textarea-format {
+	font-family: $-lato;
+	font-weight: 900;
 }
 
 @mixin base-list {
 	list-style-type: none;
-	color: #333;
+	color: $textColorSecondary;
 }
 
 @mixin base-links {
 	text-decoration: none;
-	color: #333;
+	color: $textColorSecondary;
 }
 
 @mixin base-header {

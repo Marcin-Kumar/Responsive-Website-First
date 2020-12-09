@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/dist/css/style.min.css">
+    <title>A Web Developers Beginning</title>
+    <script src="https://kit.fontawesome.com/6945b7a571.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container flex">
+            <h1 class="logo">Discite.</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Head -->
+    <section class="contact-head bg-primary py-3">
+        <div class="container grid">
+            <div>
+                <h1 class="xl">Contact Us</h1>
+
+                <p class="lead">Maybe you have some feedbacks for us. 
+                    Contact us here
+                </p>
+            </div>
+            <img src="/images/contact.svg" alt="contact">
+        </div>
+    </section>
+
+    <!-- contact form  -->
+    <section class="contact bg-light">
+        <div class="contact-form card">
+            <h2 class="medium">Contact us</h2>
+            <form>
+                <div class="form-control">
+                    <input type="text" name="name" placeholder="Name" required>
+                </div>
+                <div class="form-control">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-control">
+                    <textarea name="comment" placeholder="Enter your comment here" required></textarea>
+                </div>
+                <input type="submit" value="send" class="btn btn-primary">
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer bg-dark py-5">
+        <div class="container grid grid-3">
+            <div>
+                <h1>Discite</h1>
+                <p>Copyright &copy; 2020</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="social">
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>          
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

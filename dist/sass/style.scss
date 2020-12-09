@@ -1,4 +1,5 @@
 @import "baseStyles";
+@import "baseUtilities";
 
 * {
 	@include base-format;
@@ -16,6 +17,10 @@ a {
 	@include base-links;
 }
 
+textarea {
+	@include base-textarea-format;
+}
+
 h1,
 h2 {
 	@include base-header;
@@ -29,9 +34,10 @@ img {
 	@include base-image;
 }
 
+// Navbar styling
 .navbar {
-	background-color: royalblue;
-	color: white;
+	background-color: $backgroundColorPrimary;
+	color: $textColorPrimary;
 	height: 70px;
 }
 
@@ -42,26 +48,394 @@ img {
 	ul {
 		display: flex;
 		a {
-			color: white;
+			color: $textColorPrimary;
 			padding: 10px;
 			margin: 0 5px;
 			&:hover {
-				border-bottom: 2px white solid;
+				border-bottom: 2px $textColorPrimary solid;
 			}
 		}
 	}
 }
 
-.container {
-	max-width: 1100px;
-	margin: 0 auto;
-	overflow: auto;
-	padding: 0 40px;
+// Showcase
+.showcase {
+	height: 400px;
+	background-color: $backgroundColorPrimary;
+	color: $textColorPrimary;
+	position: relative;
+
+	.grid {
+		overflow: visible;
+		grid-template-columns: 55% auto;
+		gap: 30px;
+		h1 {
+			font-size: 40px;
+		}
+		p {
+			margin: 20px 0;
+		}
+	}
 }
 
-.flex {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
+.showcase-text {
+	animation: slideInFromLeft 1s ease-in;
+}
+
+.showcase-form,
+.contact-form {
+	position: relative;
+	top: 60px;
+	height: 350px;
+	width: 400px;
+	padding: 40px;
+	z-index: 100;
+	justify-self: flex-end;
+	animation: slideInFromRight 1s ease-in;
+	.form-control {
+		margin: 30px 0;
+	}
+	input[type="text"],
+	input[type="email"],
+	select {
+		border: 0;
+		border-bottom: 1px solid #b4becb;
+		width: 100%;
+		padding: 3px;
+		font-size: 16px;
+		&:invalid {
+			color: gray;
+		}
+		option {
+			color: black;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.showcase,
+.features-head {
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100px;
+		bottom: -70px;
+		right: 0;
+		left: 0;
+		background: $basePrimaryColor;
+		transform: skewY(-3deg);
+		-webkit-transform: skewY(-3deg);
+		-moz-transform: skewY(-3deg);
+		-ms-transform: skewY(-3deg);
+	}
+}
+
+// Stats
+.stats {
+	padding-top: 100px;
+	animation: slideInFromBottom 1s ease-in;
+	.grid {
+		h3 {
+			font-size: 35px;
+		}
+		p {
+			font-size: 20px;
+			font-weight: bold;
+		}
+	}
+}
+
+.stats-heading {
+	max-width: 500px;
+	margin: auto;
+}
+
+// Into Feature section
+.category {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		> *:first-child {
+			grid-column: 1 / span 2;
+			grid-row: 1 / span 3;
+		}
+		.image-fade {
+			background-image: url("/images/together.jpg");
+			width: 450px;
+			height: 300px;
+			background-size: cover;
+			box-shadow: 0 3px 25px rgba($color: #000000, $alpha: 0.7);
+			img {
+				width: 450px;
+				height: 300px;
+				-webkit-transition: all ease 1s;
+				-moz-transition: all ease 1s;
+				-o-transition: all ease 1s;
+				-ms-transition: all ease 1s;
+				transition: all ease 1s;
+				&:hover {
+					height: 300px;
+					opacity: 0;
+					transform: scale(1.1) translate3d(-10px, -10px, 0);
+				}
+			}
+		}
+		.card {
+			transition: transform 0.2s;
+			&:hover {
+				transform: scale(1.1) translate3d(-10px, -10px, 0);
+			}
+		}
+	}
+}
+
+// One-to-one
+.direct-conversation {
+	.grid {
+		grid-template-columns: 4fr 3fr;
+		column-gap: 100px;
+	}
+	i {
+		font-size: 250px;
+	}
+}
+
+// Languages
+.languages {
+	.flex {
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+	.card {
+		text-align: center;
+		margin: 18px 10px 40px;
+		transition: transform 0.2s ease-in;
+		img {
+			display: block;
+			width: 50%;
+			max-width: 50px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		h4 {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		&:hover {
+			transform: translateY(-15px);
+		}
+	}
+}
+
+// Features and contact
+.features-head,
+.contact-head {
+	height: 400px;
+	position: relative;
+	img {
+		width: 400px;
+		justify-self: flex-end;
+	}
+}
+// skew for features is added at top along with showcase
+
+.features-sub-head {
+	padding-top: 100px;
+	.flex {
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		align-content: stretch;
+	}
+}
+
+//  skew for contacts is added at top along with showcase
+//  contact form design is added at top with showcase-form
+
+.contact {
+	padding: 100px;
+	.card {
+		text-align: center;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		max-width: 600px;
+		height: auto;
+		border: 1px solid $backgroundColorPrimary;
+	}
+	.contact-form {
+		textarea {
+			position: relative;
+			border: 0;
+			border-bottom: 1px solid #b4becb;
+			width: 100%;
+			padding: 3px;
+			max-width: 600px;
+			font-size: 16px;
+			resize: none;
+			&:invalid {
+				color: gray;
+			}
+			option {
+				color: black;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
+
+// Animations
+
+@keyframes slideInFromLeft {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInFromRight {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInFromTop {
+	0% {
+		transform: translateY(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInFromBottom {
+	0% {
+		transform: translateY(100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+// footer
+
+.footer {
+	.social {
+		a {
+			margin: 0 10px;
+		}
+	}
+}
+
+// large Tablet and under
+
+@media (max-width: 992px) {
+	.features-sub-head {
+		text-align: center;
+		.grid {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr;
+		}
+	}
+}
+
+// medium Tablet and under
+
+@media (max-width: 768px) {
+	.grid,
+	.showcase .grid,
+	.stats .grid,
+	.features-head .grid,
+	.contact-head .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+
+	.showcase {
+		height: auto;
+		.showcase-text {
+			text-align: center;
+			margin-top: 40px;
+			animation: slideInFromTop 1s ease-in;
+		}
+		.showcase-form {
+			justify-self: center;
+			margin: auto;
+			animation: slideInFromBottom 1s ease-in;
+		}
+	}
+
+	.features-head,
+	.contact-head {
+		height: auto;
+		text-align: center;
+		img {
+			justify-self: center;
+			margin: auto;
+		}
+	}
+
+	.direct-conversation .grid {
+		> *:first-child {
+			grid-column: 1;
+			grid-row: 1;
+		}
+		gap: 2rem;
+		overflow: hidden;
+		i {
+			justify-self: flex-start;
+			align-self: center;
+			font-size: 9rem;
+		}
+	}
+	.category .grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		> *:first-child {
+			grid-column: 1;
+			grid-row: 1;
+			justify-self: center;
+		}
+		text-align: center;
+		align-items: center;
+		justify-items: stretch;
+	}
+}
+
+// Mobile
+
+@media (max-width: 500px) {
+	.navbar {
+		height: 7rem;
+		.flex {
+			flex-direction: column;
+			justify-content: stretch;
+		}
+		ul {
+			margin-top: 10px;
+			padding: 10px;
+			background-color: rgba($color: #000000, $alpha: 0.1);
+			a {
+				color: $textColorPrimary;
+				&:hover {
+					border-bottom: 2px $textColorPrimary solid;
+				}
+			}
+		}
+	}
 }
