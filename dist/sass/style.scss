@@ -34,6 +34,11 @@ img {
 	@include base-image;
 }
 
+.hidden {
+	visibility: hidden;
+	height: 0;
+}
+
 // Navbar styling
 .navbar {
 	background-color: $backgroundColorPrimary;
