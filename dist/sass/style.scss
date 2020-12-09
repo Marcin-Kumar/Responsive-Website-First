@@ -17,6 +17,10 @@ a {
 	@include base-links;
 }
 
+textarea {
+	@include base-textarea-format;
+}
+
 h1,
 h2 {
 	@include base-header;
@@ -74,7 +78,8 @@ img {
 	}
 }
 
-.showcase-form {
+.showcase-form,
+.contact-form {
 	position: relative;
 	top: 60px;
 	height: 350px;
@@ -105,7 +110,8 @@ img {
 	}
 }
 
-.showcase {
+.showcase,
+.features-head {
 	&::before,
 	&::after {
 		content: "";
@@ -218,6 +224,66 @@ img {
 	}
 }
 
+// Features and contact
+.features-head,
+.contact-head {
+	height: 400px;
+	position: relative;
+	img {
+		width: 400px;
+		justify-self: flex-end;
+	}
+}
+// skew for features is added at top along with showcase
+
+.features-sub-head {
+	padding-top: 100px;
+	.flex {
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		align-content: stretch;
+	}
+}
+
+//  skew for contacts is added at top along with showcase
+//  contact form design is added at top with showcase-form
+
+.contact {
+	padding: 100px;
+	.card {
+		text-align: center;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		max-width: 600px;
+		height: auto;
+		border: 1px solid $backgroundColorPrimary;
+	}
+	.contact-form {
+		textarea {
+			position: relative;
+			border: 0;
+			border-bottom: 1px solid #b4becb;
+			width: 100%;
+			padding: 3px;
+			max-width: 600px;
+			font-size: 16px;
+			resize: none;
+			&:invalid {
+				color: gray;
+			}
+			option {
+				color: black;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
+
 // footer
 
 .footer {
@@ -228,12 +294,26 @@ img {
 	}
 }
 
-// Tablet and under
+// large Tablet and under
+
+@media (max-width: 992px) {
+	.features-sub-head {
+		text-align: center;
+		.grid {
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr;
+		}
+	}
+}
+
+// medium Tablet and under
 
 @media (max-width: 768px) {
 	.grid,
 	.showcase .grid,
-	.stats .grid {
+	.stats .grid,
+	.features-head .grid,
+	.contact-head .grid {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
 	}
@@ -245,6 +325,16 @@ img {
 			margin-top: 40px;
 		}
 		.showcase-form {
+			justify-self: center;
+			margin: auto;
+		}
+	}
+
+	.features-head,
+	.contact-head {
+		height: auto;
+		text-align: center;
+		img {
 			justify-self: center;
 			margin: auto;
 		}
@@ -267,8 +357,8 @@ img {
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
 		> *:first-child {
-			grid-column: 1 / 2;
-			grid-row: 1 / 2;
+			grid-column: 1;
+			grid-row: 1;
 			justify-self: center;
 		}
 		text-align: center;
